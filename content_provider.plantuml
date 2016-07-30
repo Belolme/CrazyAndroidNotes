@@ -1,0 +1,47 @@
+@startuml
+
+class ContentProvider{
+	--get resolver--
+	getContentResolver() ~ 用于通知观察者与获取数据
+
+	..override method..
+	onCreate()
+	query()
+	insert()
+	update()
+	delete()
+	getType()
+}
+note right
+如果要确保每一个注册的ContentObserved检测到监听
+需要在每一个方法里面写上一句
+getContentResover().notifyChange();
+endnote
+
+class ContentResolver{
+	--method--
+	insert()
+	query()
+	delete()
+	update()
+	..get stream..
+	openOutputStream()
+	..-register listener..
+	registerContentObserver(ContentObserver)
+	notifyChange()
+}
+
+class URI
+class URIMatch{
+	addURI(format, returnWord) ~ 添加uri格式
+	match(uri): returnWord ~ 匹配uri
+}
+note right: '#'为通配符
+
+'-------------------spilt line--------------------
+URIMatch ..> URI
+ContentProvider -left-> URI
+ContentResolver -right-> URI
+
+
+@enduml

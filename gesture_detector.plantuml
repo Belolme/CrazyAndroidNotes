@@ -1,0 +1,29 @@
+@startuml
+
+class GestureDetector{
+	--listener--
+	OnGestureListener
+	--method--
+	setGestureListener()
+}
+
+class Gesture
+
+package "gesture library"<<Rect>> {
+	class GestureLibrary
+	class GestureOverlayView
+	note top: 用于捕获用户输入的手势的界面控件
+}
+legend right
+gesture library 用于实现自定义手势
+endlegend
+
+
+'--------------------spilt line----------------------
+GestureDetector  o--> OnGestureListener
+OnGestureListener --> Gesture
+
+Gesture <--o GestureLibrary: fromFile() & recognize()
+GestureOverlayView --> Gesture
+
+@enduml

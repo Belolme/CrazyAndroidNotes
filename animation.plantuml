@@ -1,0 +1,35 @@
+@startuml
+
+class View
+
+class Animation
+
+class AnimationUtils
+
+class FrameAnimation
+class AlplaAnimation
+class ScaleAnimation
+class TranslateAnimation
+class RotaleAnimation
+
+class Interpolator
+
+'---------------spilt line--------------
+View .right.> Animation: startAnimaion()
+
+Animation --> AnimationUtils: setFillAfter()
+AnimationUtils ..> xml: loadAnimation()
+
+AlplaAnimation --|> Animation
+FrameAnimation --|> Animation
+ScaleAnimation --|> Animation
+TranslateAnimation --|> Animation
+RotaleAnimation --|> Animation
+
+Animation o--> Interpolator
+
+legend right
+结合FrameAnimation and TweenAnimation 可以做出许多优美的动画
+endlegend
+
+@enduml

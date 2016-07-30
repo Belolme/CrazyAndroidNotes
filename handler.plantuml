@@ -1,0 +1,27 @@
+@startuml
+
+class Handler
+note right
+Handler 会绑定到创建它的线程中,需要使用Looper进行管理
+通常使用Handler进行线程之间的通信
+endnote
+
+class MessageQueue
+class Message
+
+class Looper{
+	--method--
+	{static}prepare() ~ prepare Handler
+	{static}loop() ~ start Looper
+}
+note right: Handler使用Looper管理MessageQueue
+
+class Thread
+
+'---------------spilt line---------------------
+Looper o--> Thread
+Looper o--> MessageQueue
+MessageQueue o--> Message
+Handler o--> Looper
+
+@enduml

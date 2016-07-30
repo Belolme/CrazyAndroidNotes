@@ -1,0 +1,74 @@
+<p><link rel="stylesheet" href="github-markdown.css">
+<article class="markdown-body"></p>
+
+<h2>Activity关系图</h2>
+
+<p><img src="./activity.png" alt="activity" title=""></p>
+
+<h2>Activity加载模式</h2>
+
+<h3>standard</h3>
+
+<pre><code>                |     |  
+NEW ACTIVITY -&gt; |     |  
+                |activity |  
+                |_________|
+</code></pre>
+
+<hr>
+
+<h3>singleTop</h3>
+
+<pre><code>                |             |  
+     new|----&gt;  |             |  
+        ------  | SingleTop Activity      | in the top  
+                |_________________________|  
+
+new activity---&gt;|             |  
+                | other Activity      |  
+                | SingleTop Activity      | not in the top  
+                |_________________________|
+</code></pre>
+
+<hr>
+
+<h3>singleTask</h3>
+
+<pre><code>                |             |  
+                |             |  
+new activity---&gt;|             | not exist  
+                |_________________________|  
+
+
+                |             |  
+     new|----&gt;  |             |  
+         ------ | singleTask  Activity    | in the top  
+                |_________________________|  
+
+
+new activity--&gt; |             |  
+ remove &lt;------ | other activity          |  
+                | singleTask activity     | not in the top  
+                |_________________________|
+</code></pre>
+
+<hr>
+
+<h3>singleInstance</h3>
+
+<pre><code>|     |  
+|     |  
+|activity |  
+|_________\  
+
+  Task1  
+
+|     |             |           |  
+|     |        new-&gt;|SingleInstance activity|  
+|activity |             |activity       |  
+|_________|             |_______________________|  
+
+  Task1               Task2
+</code></pre>
+
+<p></article></p>

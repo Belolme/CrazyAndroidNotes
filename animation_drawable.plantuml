@@ -1,0 +1,23 @@
+@startuml
+
+class Drawable
+
+class DrawableContainer
+
+class AnimationDrawable{
+	--method--
+	addFrame()
+	start()
+	stop()
+}
+note right: 使用动画的时候会不断的调用View的onDraw()
+
+legend right
+使用Margin控制实时生成自定义View的位置
+endlegend
+
+'--------------spilt line----------------
+Drawable <|-- DrawableContainer
+AnimationDrawable --|> DrawableContainer
+
+@enduml

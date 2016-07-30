@@ -1,0 +1,97 @@
+@startuml
+!include activity.plantuml
+
+legend right
+ 基本上每一个控件都有相对应的Listener
+endlegend
+
+class TextView{
+	--attribute--
+	ellipsize ~ 单行
+	shadowDx ~ 用于添加阴影效果
+	shadowDy
+	shadowRadius
+	input="number,password..." ~ 特定的输出效果
+}
+class TextClock{
+	--attribute--
+	format12Hour
+	format24Hour
+	timeZone
+}
+class Chronometer{
+	--attribute--
+	format
+	--method--
+	start()
+	stop()
+	setFormat()
+	setBase() ~ Start Time
+}
+class Button
+class CompoundButton
+class RadioButton
+class CheckButton{
+	--attribute--
+	checked
+}
+class ToggleButton{
+	--attribute--
+	textOff ~ 设置相应状态的文字
+	textOn
+}
+class Switch{
+	--attribute--
+	switchMinWidth
+	switchPadding
+	textoff
+	texton
+	textStyle(Typeface)
+	thumb ~ 设置开关的样式
+	track(Drawable)
+}
+class EditText{
+	--attribute--
+	inputType
+	selectAllOnFocus ~ select all when user click it 
+}
+class ExtractEditText
+note left: 提供全屏输入支持
+class AutoCompeteTextView
+class ArrayAdapter
+
+class AnalogClock{
+	--attribute--
+	dial ~ 转盘图片
+	hand-hour
+	hand-minute
+}
+note left: 模拟时钟
+class CheckedText
+
+'---------------spilt line------------------
+
+AnalogClock --|> View
+TextView --|> View
+
+TextClock --|> TextView
+Chronometer --|> TextView
+
+Button ----|> TextView
+CompoundButton --|> Button
+RadioButton --|> CompoundButton
+CheckButton --|> CompoundButton
+ToggleButton --|> CompoundButton
+Switch --|> CompoundButton
+
+CheckedText -left-|> TextView
+
+EditText --|> TextView
+ExtractEditText --|> EditText
+AutoCompeteTextView -left-|> EditText
+AutoCompeteTextView o-right-> ArrayAdapter
+
+'----------------hide component--------------
+hide UIComponent
+
+@enduml

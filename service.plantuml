@@ -1,0 +1,27 @@
+@startuml
+
+interface ServiceConnection
+interface IBinder
+
+class Context{
+	--method--
+	startService()
+	bindService()
+
+	..get System service..
+	getSystemService(Context.xxx)
+}
+
+class Service
+note right: 当执行完任务之后, 需要自己调用stopself()或是外面的Activity调用stopService()
+
+class IntentService
+note top: 无需调用stopSelf(), 提供了onStartCommand()方法实现
+
+'----------------spilt line--------------------
+Service --> Context
+ServiceConnection <--o Service
+IBinder <--o Service
+IntentService -right-|> Service
+
+@enduml

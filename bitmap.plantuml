@@ -1,0 +1,35 @@
+@startuml
+
+interface Parcelable
+
+class Bitmap{
+	--method--
+	decodeFile()
+	decodeResource()
+	
+	--recycle--
+	recycle()
+}
+
+class BitmapFactory{
+	--method--
+	createBitmap()
+	createScaleBitmap(**matrix**)
+}
+note bottom: you can use R.id, resource and path create a Bitmap
+
+class BitmapDrawable{
+	--method--
+	getDrawable()
+	getBitmap()
+}
+
+'---------------spilt line----------
+Bitmap .|> Parcelable
+Bitmap <.. BitmapFactory
+OutputStream ..> Bitmap: compress()
+
+Bitmap <.. BitmapDrawable
+	
+
+@enduml

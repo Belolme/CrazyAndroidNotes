@@ -1,0 +1,55 @@
+<p><link rel="stylesheet" href="github-markdown.css">
+<article class="markdown-body"></p>
+
+<h2>Drawable</h2>
+
+<p>用于保存位图和图片选择文件</p>
+
+<p><code>  </p>
+
+<pre><code>StateListDrawable:
+&lt;selector&gt;
+    &lt;item color="" drawable="" state_xxx=""&gt;
+
+LayoutDrawable:
+&lt;layout-list&gt;
+    &lt;item drawable=""&gt;
+        &lt;bitmap&gt;
+
+ShapeDrawable:
+&lt;shape&gt;
+    &lt;gradient&gt;
+
+ClipDrawable:
+&lt;clip&gt;
+    &lt;setLevel&gt; ~ (1..10000)
+</code></pre>
+
+<p></code></p>
+
+<h2>Attribute resources</h2>
+
+<p>Attribute resources is located <strong><code>values/</code></strong> directory</p>
+
+<p>在xml中定义一个Attribute Resources
+<code></p>
+
+<pre><code>&lt;resources&gt;
+    &lt;attr name="attribute_name"/&gt;
+    &lt;declare-styleable name="..."/&gt; ~ 定义属性资源集合
+</code></pre>
+
+<p></code>
+当在xml定义完属性资源后, 便可以在自定义View构造器中通过<code>context.obtainStyledAttributes(attributeSet, R.styleable.xxx)</code>获得属性值了</p>
+
+<h2>Raw resources</h2>
+
+<p><strong><code>raw/</code></strong> 是用于存放原始资源的目录,
+一般用于保存一些图片和音频</p>
+
+<h2>Assets</h2>
+
+<p>无法被R引导的资源文件, 是比Raw更为原始的资源文件保存目录.
+使用<strong><code>AsserManager</code></strong>进行管理.</p>
+
+<p></article></p>

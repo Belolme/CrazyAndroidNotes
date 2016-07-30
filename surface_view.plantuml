@@ -1,0 +1,33 @@
+@startuml
+
+class SurfaceView{
+	--method--
+	getHolder(): SurfaceHolder
+}
+
+class SurfaceHolder{
+	--method--
+	..lock canvas...
+	lockCanvas(): Canvas
+	lockCanvas(Rect): Canvas
+	unlockCanvasAndPost()
+}
+
+interface SurfaceHolder.Callback{
+	--method--
+	surfaceChanged(surfaceHolder)
+	surfaceCreate(surfaceHolder)
+	surfaceDestroyed(surfaceHolder)
+}
+
+class Canvas
+
+class Rect
+
+'-----------------spilt line---------------
+SurfaceView o--> SurfaceHolder
+SurfaceHolder o--> Canvas
+SurfaceHolder ..> Rect
+SurfaceHolder o--> SurfaceHolder.Callback
+
+@enduml

@@ -1,0 +1,150 @@
+@startuml
+
+!include animation_drawable.plantuml
+
+hide DrawableContainer
+hide AnimationDrawable
+
+'-----------------------------------
+
+class Canvas{
+	--method--
+	..draw..
+	drawArc()
+	drawBitmap()
+	drawCircle()
+	drawColor()
+	drawLine()
+	drawOval()
+	drawPath()
+	drawPoint()
+	drawRect()
+	drawRoundRect()
+	drawText()
+	drawTextOnPath()
+	clipRect()
+	clipRegion()
+	rotate()
+	scale()
+	skew()
+	translate()
+	drawBitmapMesh() ~ 用于绘制水波纹效果, 顶点变换
+	
+	..operator..
+	restore() ~ 恢复保存的坐标
+	translate() ~ 移动坐标
+	save() ~ 保存当前坐标
+	
+}
+
+class Paint{
+	--method--
+	setARGB()
+	setAlpha()
+	setColor()
+	setPathEffect()
+	setShader()
+	setShaderLayout()
+	setStrakeWidth()
+	setStyle(Paint.Style)
+	setTextAlign()
+	setTextSize()
+	setMaskFilter()
+}
+
+package "maskFilter" <<Rect>>{
+	class MaskFilter
+	class BlurMaskFilter
+	class EmbossMaskFilter
+}
+
+package "shader" <<Rect>>{
+	class Shader
+	class BitmapShader
+	class LinearGradient
+	class RadialGradient
+	class SweepGradient
+	class ComposeGradient
+	class Shader.TileMode
+}
+
+class Path{
+	--method--
+	moveTo()
+	lineTo(contourEnd)
+	close()
+	quadTo()
+	reset()
+}
+
+package "pathEffect" <<Rect>>{
+	class PathEffect
+	class ComposePathEffect
+	class CornerPathEffect
+	class DashPathEffect
+	class DiscretePathEffect
+	class PathDashPahtEffect
+	class SumPathEffect
+}
+
+class Matrix{
+	--method--
+	setTranslation()
+	setSkew()
+	setRotate()
+	setScale()
+}
+
+class Color
+
+package "shape" {
+	class Rect
+	class Oval
+	class Circle
+	class Line
+}
+
+
+class ShapeDrawable{
+	--method--
+	draw(**canvas**)
+	getPaint()
+	setShape()	
+
+	..constructor..
+	ShapeDrawable(shape)
+}
+note right: take shape and manages its presence on the screen
+
+'----------------------spilt line-----------------------
+Canvas ..> shape
+Canvas ..> Color
+Canvas ..> Paint
+Canvas ..> Matrix
+Canvas ..> Path
+
+Path --> PathEffect
+PathEffect <|-- CornerPathEffect
+PathEffect <|-- ComposePathEffect
+PathEffect <|-- DashPathEffect
+PathEffect <|-- DiscretePathEffect
+PathEffect <|-- PathDashPahtEffect
+PathEffect <|-- SumPathEffect
+
+Paint --> MaskFilter
+MaskFilter <|-- BlurMaskFilter
+MaskFilter <|-- EmbossMaskFilter
+Paint --> Shader
+
+Shader <|-- BitmapShader
+Shader <|-- LinearGradient
+Shader <|-- RadialGradient
+Shader <|-- SweepGradient
+Shader <|-- ComposeGradient
+Shader --> Shader.TileMode
+
+ShapeDrawable --|> Drawable
+ShapeDrawable ..> Canvas
+
+
+@enduml

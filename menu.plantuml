@@ -1,0 +1,39 @@
+@startuml
+
+class MenuItem{
+	--method--
+	setIntent()
+}
+
+class Menu
+
+class PopupMenu{
+	--class--
+	OnMenuItemClick: 用于设置各个menu的监听
+
+	--constructor--
+	PopupMenu(context, button)
+
+	--method--
+	getMenu()
+	show(): 显示Menu
+}
+
+class Activity{
+	--method--
+	getMenuInflater() 
+}
+
+class MenuInflate{
+	--method--
+	inflate(xmlId, menu): 用于加载xml文件到menu中
+}
+note right: 用于绑定xml文件到menu中
+
+'--------------spilt line--------------
+Menu <.down. PopupMenu: getMenu()
+MenuInflate --> Activity
+MenuItem <-right-o Menu
+Menu <--o Activity
+
+@enduml

@@ -1,0 +1,126 @@
+<p><link rel="stylesheet" href="github-markdown.css">
+<article class="markdown-body"></p>
+
+<h2>View Group</h2>
+
+<p><img src="view_group.png" alt="" title=""></p>
+
+<h2>计量单位</h2>
+
+<ul>
+<li>px ~ pixels</li>
+<li>p ~ inch/160 pixels</li>
+<li>p ~ scaled pixels 可以随着用户的字体大小更改而更改</li>
+<li>n ~ inch</li>
+<li>m </li>
+<li>t ~ 1/72 inch</li>
+</ul>
+
+<h2>TextView</h2>
+
+<p><img src="./text_view.png" alt="TextView" title=""></p>
+
+<h2>ImageView</h2>
+
+<p><img src="./image_view.png" alt="ImageView" title=""></p>
+
+<h2>Adapter and AdapterView</h2>
+
+<p><img src="./adapter_view_component.png" alt="adapter and AdapterView Component" title="">
+<img src="./adapter.png" alt="Adapter" title="">
+<img src="./adapter_view.png" alt="AdapterView" title=""></p>
+
+<h2>Progress Bar</h2>
+
+<p>在安卓中, 设置Progress Bar除了使用控件之外, 还可以使用Activity自带的Progress 控件
+<img src="./progress_bar.png" alt="progress bar" title=""></p>
+
+<h2>可以包装动画的控件</h2>
+
+<p><img src="./animation_view.png" alt="animation view" title=""></p>
+
+<h2>Toast</h2>
+
+<p>Toast.makeText()</p>
+
+<h2>CalendarView</h2>
+
+<pre><code>--attribute---  
+firstDayOfWeek()   
+focusedMonthDateColor()   
+maxDate() ~ 使用格式 mm/dd/yyyy  
+minDate()   
+---inner class---  
+OnDateChangeListener
+</code></pre>
+
+<h2>DatePicker &amp; TimePicker</h2>
+
+<h2>NumberPicker</h2>
+
+<pre><code>--method---  
+setMinValue()  
+setMaxValue()
+</code></pre>
+
+<h2>SearchView</h2>
+
+<pre><code>setIconifiedByDefault(boolean)  
+setSubmitBottomEnabled(boolean)  
+setQueryHint(charSequence)  
+setOnQueryTextListener(OnQueryTextListener)
+</code></pre>
+
+<h2>NotificationManager</h2>
+
+<pre><code>class NotificationManager{  
+    ---method---  
+    notified()  
+    cancel()  
+}  
+Notification.Builder &lt;.. Notification  
+Notification ..&gt; Notification
+</code></pre>
+
+<h2>AlterDialog</h2>
+
+<p>除了使用系统提供的控件之外, 启用Dialog还可以通过设置窗口风格和使用内置Activity提供的方法获得.</p>
+
+<pre><code>showAsDropDown()  
+showAtLocation()  
+dismiss()
+</code></pre>
+
+<p><img src="./dialog.png" alt="dialog" title=""> </p>
+
+<h2>ActionBar</h2>
+
+<pre><code>class ActionBar{  
+    --method--  
+    show()  
+    hide() ~ 还可以把主题设置为xxx.NoActionBar来隐藏ActionBar  
+    setDisplayHomeAdUpEnabled(boolean)  
+    setHomeButtonEnable  
+}  
+
+ActionBar o--&gt; Activity: getActionBar() || getSupportActionBar()
+</code></pre>
+
+<h2>Menu</h2>
+
+<p>subMenu ~ 使用原始菜单键启动的Menu项 <br>
+contextMenu ~ 上下文菜单 <br>
+popupMenu ~ 为组件填充菜单项  </p>
+
+<h3>使用XML文件定义菜单</h3>
+
+<ul>
+<li><code>&lt;item id="..." title="..." /&gt;</code>: 定义菜单选项</li>
+<li><code>&lt;group checkableBehavior="true|false"/&gt;</code>: 将多个item项包装成一个菜单组</li>
+<li><code>&lt;menu/&gt;</code>: 菜单文件的标头</li>
+</ul>
+
+<h3>菜单的类关系图</h3>
+
+<p>:<img src="./menu.png" alt="menu" title="">
+</article></p>

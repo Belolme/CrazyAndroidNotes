@@ -1,0 +1,41 @@
+<p><link rel="stylesheet" href="github-markdown.css">
+<article class="markdown-body"></p>
+
+<h2>Broadcast receiver</h2>
+
+<p>系统级的监听接收器, 拥有独立的进程,
+发出的Broadcast会按优先级顺序被接收. 如果被中止,则无法接收到.</p>
+
+<h3>register broadcast receiver</h3>
+
+<p>在XML中注册Broadcast Receiver
+<code></p>
+
+<pre><code>&lt;receiver&gt;
+    &lt;intent-filter priority="-1000..1000"/&gt;
+    &lt;!--优先级顺序从小到大--&gt;
+&lt;/receiver&gt;
+</code></pre>
+
+<p></code>
+或者使用<code>registerReceiver(IntentFilter)</code></p>
+
+<h3>use boardcast for service interact with activity</h3>
+
+<h2>Broadcast</h2>
+
+<pre><code>Context.sendBroadcast()
+Context.sendOrderedBroadcast()
+</code></pre>
+
+<h2>系统广播消息</h2>
+
+<ul>
+<li><code>ACTION_TIME_CHANGED</code></li>
+<li><code>ACTION_BATTERY_CHANGED</code></li>
+<li><code>ACTION_POWER_CONNECTED</code></li>
+<li><code>ACTION_SHUTDOWN</code></li>
+<li><code>ACTION_BOOT_COMPLETED</code> ~ 需要权限</li>
+</ul>
+
+<p></article></p>

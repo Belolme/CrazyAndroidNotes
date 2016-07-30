@@ -1,0 +1,23 @@
+@startuml
+
+'------------component uml-----------
+Frame "Listener"{
+	interface OnItemClickListener
+	interface OnItemLongClickListener
+	interface OnItemSelectedListener
+}
+
+component AdapterViewCom
+
+component Adapter
+
+component ViewHolder
+note right: use to save id of views
+
+AdapterViewCom o-left-> Adapter: get data from Adapter
+AdapterViewCom o-right-> ViewHolder: hold view id with ViewHolder
+AdapterViewCom o--> OnItemSelectedListener
+AdapterViewCom o--> OnItemLongClickListener
+AdapterViewCom o--> OnItemClickListener
+
+@enduml

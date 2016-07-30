@@ -1,0 +1,61 @@
+@startuml
+
+class View{
+	--attribute--
+	background
+	+setElevation(): void
+	+setTranslation(): void
+	
+	--method--
+	..update view in thread..
+	post(runable)
+	postDelayed(runable)
+
+	..自定义控件..
+	inValidate() ~ 通知重绘控件(**调用onDraw()**)
+	+override onDraw()
+
+	
+}
+
+class UIComponent
+class ViewGroup{
+	class LayoutParams
+	class MarginLayoutParams
+
+	--method--
+	+addView()	
+}
+class Window
+abstract class Context
+class ContextWrapper
+class ContextThemeWrapper
+class Activity{
+	--method--
+	+setTheme() ~ 设置窗口风格
+	+setContentView()
+
+	..communication in UIThread..
+	+runOnUiThread(runable)
+
+	..activity manage..
+	startActivity(intent)
+	startActivityForResult(intent, requestcode)
+	finishActivity()
+	setResult(resultecode, intent)
+}
+
+class service
+
+View <|-- UIComponent
+View <|-- ViewGroup
+Window -left-|> ViewGroup
+
+Context <|-- ContextWrapper
+ContextWrapper <|-- ContextThemeWrapper
+ContextThemeWrapper <|-- Activity
+Window <--o Activity
+
+service -left-|> ContextWrapper
+
+@enduml

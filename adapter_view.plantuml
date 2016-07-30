@@ -1,0 +1,89 @@
+@startuml
+!include activity.plantuml
+
+'----------hide component----------------
+hide UIComponent
+hide Window
+hide ContextWrapper
+hide ContextThemeWrapper
+hide Context
+hide Activity
+hide service
+
+'----------class defind------------------
+class AdapterView{
+	--attribute--
+	entries
+}
+
+
+class AbsListView{
+	--attribute--
+	choiceMode
+	stackFromBottom ~ 从底部开始绘制
+	transcriptMode
+	divider
+	dividerHeight
+	textFilterEnabled ~ 需要实现Filterable接口(use with SearchView)
+
+}
+
+class ListView
+
+class ExpadableListView{
+	--attribute--
+	childDivider
+	childIndicator
+	groupIndicator ~ 显示在group项旁的Drawable对象	
+}
+
+class GridView{
+	--attribute--
+	columnWidth
+	gravity
+	horizontalSpacing
+	verticalSpacing
+	numColumns ~ main attribute
+	numRows
+	stretchMode(GridView.STRTCH_...)
+}
+
+class AbsSpinner
+class Spinner{
+	--attribute--
+	promote ~ hint
+	dropDownWidth
+}
+
+class AdapterViewAnimator{
+	--attribute--
+	animationFirstView
+	inAnimation ~ The animation of view in
+	outAnimation ~ The out animation of view out
+	loopViews ~ is loop view or not
+}
+class AdapterFilter{
+	--attribute--
+	autoStart
+	flipInterval ~ 翻转间隔时间
+}
+class StackView
+
+'---------------spilt line-----------------
+ViewGroup <|-right- AdapterView
+
+AbsListView --|> AdapterView
+AbsSpinner --|> AdapterView
+AdapterViewAnimator --|> AdapterView
+
+ListView --|> AbsListView
+ExpadableListView --|> ListView
+GridView --|> AbsListView
+
+Spinner --|> AbsSpinner
+AdapterFilter --|> AdapterViewAnimator
+StackView --|> AdapterViewAnimator
+
+
+
+@enduml

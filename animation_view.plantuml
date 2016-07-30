@@ -1,0 +1,47 @@
+@startuml
+
+class ViewAnimator{
+	--attribute--
+	animateFirstView
+	inAnimator
+	outAnimator
+
+	--method--
+	addView()
+	showPrevious()
+	showNext()
+}
+
+class ViewSwitcher{
+	--method--
+	setFactory()
+}
+
+note top: 调用showNext和showPreview时启用动画
+
+abstract class ViewSwitcher.ViewFactory{
+	abstract showView(): View
+}
+note right: 用于获得需要显示的View
+
+class ImageSwitcher{
+	--method--
+	setImageResource()
+}
+note bottom: 只返回ImageView
+
+class TextSwitch
+note bottom: 同ImageSwitcher, 不过返回TextView
+
+class ViewFlipper
+
+'----------------spilt line------------------
+ViewAnimator --|> FrameLayout
+ViewSwitcher -left-|> ViewAnimator
+ViewFlipper --|> ViewAnimator
+
+ViewSwitcher o-right-> ViewSwitcher.ViewFactory
+ViewSwitcher <|-- ImageSwitcher
+ViewSwitcher <|-- TextSwitch
+
+@enduml

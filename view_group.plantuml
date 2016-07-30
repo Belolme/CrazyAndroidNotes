@@ -1,0 +1,67 @@
+@startuml
+
+class ViewGroup{
+	class LayoutParams
+	class MarginLayoutParams
+	--method--
+	addView(): void
+}
+
+class LinearLayout{
+	--attribute--
+	divider(Drawable)
+	gravity
+	..son element attribute(layout params)..
+	layout_gravity
+	layout_weight
+}
+
+class TableLayout{
+	--attribute--
+	collapseCollumns="0...n"
+	shrinkColumns="0..n" ~ 收缩适应
+	strechColumns="0..n" ~ 拉伸适应
+}
+
+class FrameLayout{
+	--attribute--
+	foreground
+	foregroundGravity
+}
+
+class RelativeLayout
+
+class GridLayout{
+	--attribute--
+	alignmentMode
+	rowCount
+	columnCount
+	..son attribute..
+	layout_row
+	layout_column
+	layout_gravity
+	layout_rowSpan	
+	layout_columnSpan
+}
+
+class GridLayout.Spec
+
+class Gravity
+
+note right of GridLayout.Spec
+just like a cell of GridLayout
+在构造器中可以设置weight属性
+endnote
+
+'---------------spilt line-------------------------
+
+ViewGroup <|-left- LinearLayout
+ViewGroup <|-right- TableLayout
+ViewGroup <|- FrameLayout
+ViewGroup <|- RelativeLayout
+ViewGroup <|-- GridLayout
+
+Gravity <--o ViewGroup.MarginLayoutParams
+GridLayout o--> GridLayout.Spec
+
+@enduml

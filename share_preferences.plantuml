@@ -1,0 +1,41 @@
+@startuml
+
+class Context{
+	getSharePreferences()
+	getFile()
+	openFileInputStream(Context.MODE_PRIVATE )
+	openFileOutputStream(Context.MODE_APPEND)
+}
+
+class SharePreferences
+
+class SharePreferences.Editor
+
+class File
+
+class FileInputStream
+class FileOutputStream
+class PrintStream
+class FileReader
+
+class Enviroment{
+	getExternalStorageState()
+	getExternalStorageDirectory(): File
+}
+
+'----------------spilt line-------------------
+SharePreferences.Editor --> SharePreferences
+SharePreferences <-- Context
+
+File <.. Context
+
+FileOutputStream <--o PrintStream
+FileInputStream <--o FileReader
+
+Context ..> FileInputStream
+Context ..> FileOutputStream
+
+Context ..> Enviroment
+File <.right. Enviroment
+
+@enduml

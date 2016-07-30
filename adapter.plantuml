@@ -1,0 +1,26 @@
+@startuml
+
+interface Filterable
+interface ListAdapter
+interface SpinnerAdapter
+
+class BaseAdapter
+class ArrayAdapter{
+	--Constructor--
+	ArrayAdapter(context, date[T], resourse)
+}
+
+class SimpleAdapter{
+	--Constructor--
+	SimpleAdapter(context, data: List<Map<String, T>>, resource, from: String[], to: int[](ResourceId))
+}
+
+'------------spilt line---------------
+BaseAdapter ..|> ListAdapter
+BaseAdapter ..|> SpinnerAdapter
+
+SimpleAdapter -left-|> BaseAdapter
+ArrayAdapter -down-|> BaseAdapter
+ArrayAdapter .right.|> Filterable
+
+@enduml

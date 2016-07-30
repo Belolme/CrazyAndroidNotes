@@ -1,0 +1,11 @@
+@startuml
+
+class BroadcastReceiver{
+	--method--
+	set...Extrax()
+	get..Extrax()
+	abortBroadcast() ~ 中止Broadcast继续传输
+}
+
+
+@enduml

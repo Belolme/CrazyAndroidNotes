@@ -1,0 +1,23 @@
+@startuml
+
+actor android_dev
+participant AAPT
+participant R.java
+
+note right of R.java
+R.string, R.layout ... 这些都是**内部类**
+--------
+xml  使用 @<class_name><resource_name>
+java 使用 R.class_name.resource_name
+end note
+
+android_dev -> AAPT: 开发者定义资源文件
+AAPT -> R.java: 由AAPT根据应用中资源自动生成每个资源对应的内部类
+R.java ->  android_dev
+
+
+'---------------------------------
+
+
+
+@enduml

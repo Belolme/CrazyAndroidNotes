@@ -1,0 +1,56 @@
+@startuml
+
+class Animator{
+	--method--
+	setDuration()
+	setRepeatCount()
+	setRepeatMode(ValueAnimator, ..)
+}
+
+note left: Animator可以为任何类设置动画, 通过更改属性实现
+
+class AnimatorSet{
+	--method--
+	with()
+	before()
+	after()
+	play()
+
+	start()
+}
+
+class Object
+
+class ValueAnimator
+class ObjectAnimator{
+	ofArgb()
+	ofFloat(object, string...): The property name, base on JavaBean实现
+}
+
+class Interpolator
+
+class DecelerateInterpolator
+class AccelerateInterpolator
+
+interface AnimatorUpdateListener
+interface AnimatorListener
+interface AnimatorPauseListener
+
+'--------------------spilt line-----------------------
+Animator o--> Object
+
+AnimatorSet --|> Animator
+AnimatorSet o--> Animator
+ValueAnimator -left-|> Animator
+
+ObjectAnimator --|> ValueAnimator
+ObjectAnimator o-right-> Interpolator
+
+DecelerateInterpolator --|> Interpolator
+AccelerateInterpolator --|> Interpolator
+
+ValueAnimator --> AnimatorPauseListener
+ValueAnimator --> AnimatorUpdateListener
+ValueAnimator --> AnimatorListener
+
+@enduml

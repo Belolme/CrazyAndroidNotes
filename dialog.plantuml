@@ -1,0 +1,23 @@
+@startuml
+
+class AlterDialog{
+	---method---
+	show()
+}
+
+class AlterDialog.Builder{
+	--method--
+	create()
+}
+
+class ProgressDialog
+class DatePickerDialog
+class TimePickerDialog
+
+'--------------spilt line---------------
+AlterDialog .up.> AlterDialog.Builder
+AlterDialog <|-down- ProgressDialog
+AlterDialog <|-left- DatePickerDialog
+AlterDialog <|-right- TimePickerDialog
+
+@enduml

@@ -1,0 +1,39 @@
+@startuml
+
+!include activity.plantuml
+
+class ImageView{
+	--attribute--
+	adjustViewBounds(boolean)
+	cropToPadding(boolean)
+	maxHeight
+	maxWidth
+	scaleType(ImageView.ScaleType)
+	src
+	--method--
+	setImageBitmap(Bitmap)
+	setImageDrawable(Drawable)
+	setImageResource(int)
+	setImageURI(URI)
+	setImageAlpha()
+}
+note left: 可以显示任何的Drawable对象
+
+class ImageButton
+
+class ZoomButton
+note right
+和普通的Button一样
+使用Android 内置的Drawable中的
+btn_minus和btn_plus提供图片
+endnote
+
+'----------------spilt line------------------
+ImageView --|> View
+ImageButton --|> ImageView
+ZoomButton --|> ImageButton
+
+'----------------hide component--------------
+hide UIComponent
+
+@enduml

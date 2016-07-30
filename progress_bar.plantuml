@@ -1,0 +1,34 @@
+@startuml
+
+class ProgressBar{
+	--attribute--
+	max
+	progress
+	progressDrawable
+	indeterminate ~ 不显示进度
+	indeterminateDrawable
+	indeterminateDuration
+
+	--method--
+	setProgress()
+	incrementProgreeBy()
+}
+
+interface OnSeekBarChangeListener
+class AbsSeekBar
+class SeekBar
+class RatingBar{
+	--attribute--
+	isindicator ~ if true, cannot modify
+	numStar
+	ratingDefaultStat
+	stepSize
+}
+
+'--------------spilt line--------------
+ProgressBar <|-- AbsSeekBar
+AbsSeekBar <|-- SeekBar
+AbsSeekBar <|-- RatingBar
+SeekBar o--> OnSeekBarChangeListener
+
+@enduml
