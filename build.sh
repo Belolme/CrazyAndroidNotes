@@ -15,4 +15,5 @@ mkdir build
 
 mv ./*.html -t ./build
 mv ./*.png -t ./build
-cp ./*css -t ./build
+cp ./*.css -t ./build
+cp ./*txt -t ./build
